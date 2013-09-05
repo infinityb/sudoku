@@ -1,3 +1,25 @@
+"""
+Copyright (C) 2013 Stacey Ell
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 import itertools
 
 
@@ -118,61 +140,45 @@ def solve(sudoku_grid):
 
 
 """
-source problem:
+#  Source problem:
+#
+#  75 |9 3|  6
+#     |   |
+#     |45 |  3
+#  ---+---+---
+#  62 | 9 |8
+#   15|   |23
+#    9| 1 | 75
+#  ---+---+---
+#  3  | 84|
+#     |   |
+#  9  |6 1| 57
+#
+#  Output:
+#
+#  758|923|146
+#  243|167|598
+#  196|458|723
+#  ---+---+---
+#  627|395|814
+#  815|746|239
+#  439|812|675
+#  ---+---+---
+#  371|584|962
+#  564|279|381
+#  982|631|457
 
-75 |9 3|  6
-   |   |
-   |45 |  3
----+---+---
-62 | 9 |8
- 15|   |23
-  9| 1 | 75
----+---+---
-3  | 84|
-   |   |
-9  |6 1| 57
-
-"""
-
-"""
 import sudoku
-sg2 = sudoku.SudokuGrid()
-sg2[0, 0] = 7
-sg2[0, 1] = 5
-sg2[0, 3] = 9
-sg2[0, 5] = 3
-sg2[0, 8] = 6
-sg2[2, 3] = 4
-sg2[2, 4] = 5
-sg2[2, 8] = 3
-sg2[3, 0] = 6
-sg2[3, 1] = 2
-sg2[3, 4] = 9
-sg2[3, 6] = 8
-sg2[4, 1] = 1
-sg2[4, 2] = 5
-sg2[4, 6] = 2
-sg2[4, 7] = 3
-sg2[5, 2] = 9
-sg2[5, 4] = 1
-sg2[5, 7] = 7
-sg2[5, 8] = 5
-sg2[6, 0] = 3
-sg2[6, 4] = 8
-sg2[6, 5] = 4
-sg2[8, 0] = 9
-sg2[8, 3] = 6
-sg2[8, 5] = 1
-sg2[8, 7] = 5
-sg2[8, 8] = 7
+sg2 = sudoku.SudokuGrid(mut=[
+    ((0, 0), 7), ((0, 1), 5), ((0, 3), 9), ((0, 5), 3),
+    ((0, 8), 6), ((2, 3), 4), ((2, 4), 5), ((2, 8), 3),
+    ((3, 0), 6), ((3, 1), 2), ((3, 4), 9), ((3, 6), 8),
+    ((4, 1), 1), ((4, 2), 5), ((4, 6), 2), ((4, 7), 3),
+    ((5, 2), 9), ((5, 4), 1), ((5, 7), 7), ((5, 8), 5),
+    ((6, 0), 3), ((6, 4), 8), ((6, 5), 4), ((8, 0), 9),
+    ((8, 3), 6), ((8, 5), 1), ((8, 7), 5), ((8, 8), 7)
+])
 print sg2.to_string()
 
 print next(sudoku.solve(sg2)).to_string()
-"""
-
-"""
-import sudoku
-count = 0
-for grid in sudoku.solve(sudoku.SudokuGrid()):
-    count += 1
 """
