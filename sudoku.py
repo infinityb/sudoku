@@ -110,14 +110,17 @@ class SudokuGrid(object):
 
     def is_solved(self):
         for x in xrange(self.size[0]):
-            if not self._solved_for_location_list(_locations_for_row(self.size, (x, 0))):
+            if not self._solved_for_location_list(
+                    _locations_for_row(self.size, (x, 0))):
                 return False
         for y in xrange(self.size[1]):
-            if not self._solved_for_location_list(_locations_for_col(self.size, (0, y))):
+            if not self._solved_for_location_list(
+                    _locations_for_col(self.size, (0, y))):
                 return False
         for x in xrange(3):
             for y in xrange(3):
-                if not self._solved_for_location_list(_locations_for_box(self.size, self.box_size, (x, y))):
+                if not self._solved_for_location_list(_locations_for_box(
+                        self.size, self.box_size, (x * 3, y * 3))):
                     return False
         return True
 
